@@ -1,0 +1,26 @@
+// // MENGGUNAKAN @IMPORT
+// // @IMPORT sudah ada pada CSS, bedanya pada SASS tidak perlu alamat lengkapnya, hanya nama filenya saja tanpa (_)
+// @import 'modules/mixin-function';
+// @import 'modules/heading-content';
+// @import 'modules/row-content';
+// @import 'modules/footer-content';
+
+// // Import secara bersamaan
+// @import 'modules/mixin-function', 'modules/heading-content', 'modules/row-content', 'modules/footer-content';
+
+// Namun SASS tidak merekomendasikan menggunakan @import, untuk alasannya bisa cek di https://sass-lang.com/documentation/at-rules/import/
+
+// Guenakan @USE untuk menggantikan nya
+
+
+// PENGGUNAAN USE
+
+// Namun penggunaan use tidak bisa secara global untuk MIXIN
+// Jika kita membuat file MIXIN secara terpisah, maka memanggilnya dengan use harus memanggilny dimana kita menggunakan mixin
+// Contohnya buka file child saja
+
+// @use 'modules/mixin-function';
+
+@use 'modules/heading-content';
+@use 'modules/row-content';
+@use 'modules/footer-content';

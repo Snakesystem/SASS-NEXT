@@ -1,0 +1,88 @@
+// macam built-in-module
+// adjust, complement, darken, lighten, saturate, desaturate, grayscale, mix, fade-in, fade-out
+// Masuk ke https://color.adobe.com/create/color-wheel untuk melihat contoh hue color
+
+$warna-dasar: salmon;
+
+// Built in Modules: Color
+
+/* 
+adjust-color($color, $red: null, $green: null, $blue: null, $hue: null, $saturation: null, $lightness: null, $whiteness: null, $blackness: null, $alpha: null)
+*/
+.adjust-color-function {
+    background-color: adjust-color($warna-dasar, $green: 100, $blue: 100, $red: -50);
+}
+
+/* 
+adjust-color($color, $degree);
+*/
+.adjust-hue-function {
+    background-color: adjust-hue($warna-dasar, 30deg);
+}
+
+/*
+ complement($color) akan memberikan warna yang berlawanan 18-deg (180 derajat)
+*/
+.complement {
+    background-color: complement($warna-dasar);
+}
+
+/*
+ darken($color, $amount) membuat warna semakin gelap ($amount: presentase)
+*/
+.darken {
+    background-color: darken($warna-dasar, 20%);
+}
+
+/*
+ lighten($color, $amount) membuat warna semakin terang ($amount: presentase)
+*/
+.lighten {
+    background-color: lighten($warna-dasar, 20%);
+}
+
+/*
+ saturate($color, $amount) membuat tingkat kemurnian dari warna semakin jelas ($amount: presentase)
+*/
+.saturate {
+    background-color: saturate($warna-dasar, 20%);
+}
+
+/*
+ desaturate($color, $amount) membuat tingkat kemurnian dari warna semakin hilang ($amount: presentase)
+*/
+.desaturate {
+    background-color: desaturate($warna-dasar, 50%);
+}
+
+/*
+ greyscale($color) membuat desaturate 100% 
+*/
+.greyscale {
+    background-color: greyscale($warna-dasar);
+}
+
+/*
+ mix($color1, $color2, $weight: 50%) untuk mencampurkan warna
+ Jika 50% kebawah maka warna kedua lebih banyak
+ Jika 59% keatas maka warna pertama lebih banyak
+*/
+.mix {
+    background-color: mix($warna-dasar, blue, 80%);
+}
+
+/*
+ fade-in($color, $amount) membuat warna yang sebelumnya transparan menjadi solid antara (0-1)
+ Namun ini hanya berlaku pada warna yang memiliki opacity
+*/
+.fade-in {
+    background-color: fade-in(rgba(250, 128, 114, 0.2), 0.5);
+}
+
+/*
+ fade-out($color, $amount) membuat warna yang sebelumnya solid menjadi transparan antara (0-1)
+ Namun ini hanya berlaku pada warna yang memiliki opacity
+*/
+.fade-out {
+    background-color: fade-out(rgba(250, 128, 114, 1), 0.5);
+}

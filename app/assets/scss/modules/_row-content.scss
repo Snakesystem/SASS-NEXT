@@ -1,0 +1,17 @@
+// PENGGUNAAN MIXIN
+@use 'mixin-function';
+
+.row-content {
+    @include mixin-function.flex-box(row-reverse, space-evenly);
+    width: 600px;
+    height: 400px;
+    background-color: grey;
+
+    .box {
+        width: 60px;
+        height: 60px;
+        background-color: greenyellow;
+        text-align: center;
+        line-height: 60px;
+    }
+}

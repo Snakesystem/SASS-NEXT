@@ -1,0 +1,72 @@
+// simple mixin
+@mixin inline-list() {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    // nested disini artinya pada saat mixin dipanggil, ketika menemukan element (li) maka dia akan memberikan style
+    li {
+        display: inline-block;
+    }
+}
+
+// PENGGUNAAN 
+// 1. Pertama panggil class yang ada di html yg mai kita target
+.mixin-heading ul {
+    // 2. Kasih keyword @include (nama mixin function nya) dan wajib menggunakan ()
+    @include inline-list();
+
+    // 3. Ini akan berlaku untuk semua element yang dipanggil, namun jika memiliki nested maka akan seperti di bawah ini
+    li {
+        background-color: black;
+        padding: 0.7em;
+
+        // 4. Kita juga bisa menggunakan nested 
+        a {
+            color: white;
+            text-decoration: none;
+        }
+    }
+}
+
+.mixin-footer ul {
+    @include inline-list();
+    li {
+        padding: 0.4em;
+        background-color: pink;
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+    }
+}
+
+// CONTOH MEMBERIKAN ARGUMENT/PARAMETER PADA MIXIN FUNCTION
+@mixin flex-box($direction, $space: center) {
+    // 1. Declare argument juga menggunakan $ seperti variabel
+    display: flex;
+    justify-content: $space;
+    align-items: center;
+
+    // 2. Memasukan argument
+    flex-direction: $direction;
+}
+
+.mixin-row {
+    // 3. argument ingin di isi apa
+    @include flex-box(row-reverse, space-evenly);
+    // 4. Perilakunya sama seperti function, jika parameternya kosong, maka akan error
+    // 5. Parameter bisa kosong, namun harus memberikan nilai default pada argument nya ($space: center)
+    width: 600px;
+    height: 400px;
+    background-color: grey;
+
+    .box {
+        width: 60px;
+        height: 60px;
+        background-color: greenyellow;
+        text-align: center;
+        line-height: 60px;
+    }
+}

@@ -1,0 +1,52 @@
+// Nested style
+.main {
+    background-color: lightblue;
+
+    .main-heading {
+        font-size: 2em;
+    }
+
+    .main-paragraph {
+        font-size: 1.4em;
+    }
+}
+
+// memberikan style dengan berpasangan
+// .main h1, .main p, footer h1, foter p {
+//     letter-spacing: 1px;
+// }
+
+// jika di SASS maka akan seperti ini
+
+.main, footer {
+    h1, p {
+        letter-spacing: 1px;
+    }
+}
+
+// Parent selector dengan & dan ini menargetkan pada class main
+// Selector ini digunakan untuk mengakses selector yang ada di atasnya 
+.main {
+    .container & {
+        background-color: greenyellow;
+    }
+    // class container ini sebenarnya berada diatas class main
+
+    .main-heading {
+        background-color: lightblue;
+    }
+
+    // Penggunaan psudo class
+    &:hover {
+        background-color: salmon;
+    }
+
+    // ada fitor untuk men-generate class sesuai nama class parent
+    & &-heading {
+        color: purple;
+    }
+
+    & &-paragraph {
+        color: white;
+    }
+}

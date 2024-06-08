@@ -1,0 +1,49 @@
+// Contoh variabel CSS
+
+// :root {
+//     --primary-color: #f431de;
+//     --secondary-color: #f2a1de;
+//     --text-color: #f4f1de;
+// }
+
+// body {
+//     background-color: var(--primary-color);
+// }
+
+// h1{
+//     color: var(--text-color);
+// }
+
+// variabel pada SASS
+$primary-color: #f431de;
+$secondary-color: #f2a1de;
+$text-color: green;
+
+.variabel-container {
+    background-color: $primary-color;
+    
+    h1 {
+        // local variabel
+        // jika ada nama variabel yang sama maka local variabel hanya bisa digunakan pada scope/nested nya
+        $text-color: #f4f1de;
+        
+        color: $text-color;
+    }
+}
+
+.variabel-header {
+    p{
+        color: $text-color;
+    }
+}
+
+// variabel MAP
+$alert: (
+    'danger': red,
+    'success': green,
+    'warning': orange
+);
+
+.footer {
+    background-color: map-get($alert , 'success' );
+}

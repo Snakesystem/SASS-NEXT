@@ -1,0 +1,15 @@
+// PENGGUNAAN MIXIN
+@use 'mixin-function';
+
+.footer-content ul {
+    @include mixin-function.inline-list();
+    li {
+        padding: 0.4em;
+        background-color: pink;
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+    }
+}

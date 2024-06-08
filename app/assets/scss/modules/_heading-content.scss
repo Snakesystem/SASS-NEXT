@@ -1,0 +1,17 @@
+// PENGGUNAAN MIXIN
+@use 'mixin-function';
+// Kita bisa menggunnakan alias seperti @use 'mixin-function as mx'
+
+.heading-content ul {
+    // Harus memanggil nama mixin, bisa juga menggunakan alias
+    @include mixin-function.inline-list();
+    li {
+        background-color: black;
+        padding: 0.7em;
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+    }
+}

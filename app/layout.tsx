@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
-
+import './assets/scss/built-in-module.scss'
+import './assets/scss/flow-control.scss'
+import './assets/scss/module.scss'
+import './assets/scss/mixin.scss'
+import './assets/scss/variabel.scss'
+import './assets/scss/nested.scss'
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -16,7 +20,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+      <div className="container">
+        <div className="heading-content">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="variabel">Variabel</a></li>
+                <li><a href="modular">Module sistem</a></li>
+                <li><a href="mixin">Mixin Funxtion</a></li>
+                <li><a href="flow-control">Flow Control</a></li>
+                <li><a href="built-in-module">Built In Function</a></li>
+            </ul>
+          </div>
+      </div>
+      {children}
+      </body>
     </html>
   );
 }
